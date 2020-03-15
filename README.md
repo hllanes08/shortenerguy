@@ -1,24 +1,38 @@
-# README
+# Shortener api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demo api for resolve short urls to long urls 
 
-Things you may want to cover:
+## Instalation
 
-* Ruby version
+Install ruby 2.7.0 using rvm
 
-* System dependencies
+```rvm use ruby-2.7.0```
 
-* Configuration
 
-* Database creation
+Then install all gems
 
-* Database initialization
+```
+bundle install
+```
 
-* How to run the test suite
+Craate db and run migrations
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+rake db:create
+rake db:migrate
+```
 
-* Deployment instructions
+Seed data
 
-* ...
+```
+rake db:seed
+```
+
+## Run
+
+Start rails server
+
+
+```
+rails s
+```
