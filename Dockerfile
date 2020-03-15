@@ -30,6 +30,6 @@ ARG RAILS_ENV=development
 CMD cd /app
 CMD mkdir tmp
 CMD mkdir tmp/pids
-CMD bundle rake db:migrate
-CMD bundle rake db:seed
+CMD bundle exec rake db:migrate
+CMD bundle exec rake db:seed
 RUN if [ "$RAILS_ENV" = "production" ]; then SECRET_KEY_BASE=$(rake secret) bundle exec rake assets:precompile; fi
