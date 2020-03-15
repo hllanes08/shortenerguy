@@ -17,7 +17,7 @@ class Api::ShortenerController < Api::BaseApiController
   end
 
   def index
-    tops = Shortcode.all.order(occurrences: :desc)
+    tops = Shortcode.all.where('occurrences is not NULL').order(occurrences: :desc)
     render json: {
       success: true,
       urls: tops
