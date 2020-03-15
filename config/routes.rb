@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   namespace :api do
     get 'shortener/:code', to: 'shortener#resolve', as: 'resolve_code'
     get 'top', to: 'shortener#index'
+    post 'shortener', to: 'shortener#create'
   end 
 end

@@ -22,4 +22,25 @@ class Api::ShortenerController < Api::BaseApiController
       urls: tops
     }
   end
+
+  def create
+    sc = Shortcode.new(shortcode_params)
+    if sc.save!
+      render json: {
+        success: true,
+	shortcode: shortcode
+      }
+    else
+      render json: {
+        success: false,
+	errors: shortcode.errors.full_messages
+      }
+    end
+  end
+
+  private
+
+  def shortcode_params
+    params.require(:shortcode).permit()
+  end
 end
