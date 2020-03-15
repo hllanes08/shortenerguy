@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'faker'
+require "rspec/json_expectations"
 RSpec.describe Api::ShortenerController, type: :controller do
   before(:all) do
     (0..200).each do |i|
@@ -9,7 +10,7 @@ RSpec.describe Api::ShortenerController, type: :controller do
 
   it 'Retrieve top records' do
     get :index
-    byebug
-    expect(response).to include('success:true')
+  
+    expect(response.body).to include_json(success:true)
   end
 end
