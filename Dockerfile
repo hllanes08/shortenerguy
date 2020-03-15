@@ -27,6 +27,9 @@ COPY package.json yarn.lock ./
 RUN npm install -g yarn
 RUN yarn install --check-files
 ARG RAILS_ENV=development
+CMD cd /app
+CMD mkdir tmp
+CMD mkdir tmp/pids
 CMD bundle rake db:migrate
 CMD bundle rake db:seed
 RUN if [ "$RAILS_ENV" = "production" ]; then SECRET_KEY_BASE=$(rake secret) bundle exec rake assets:precompile; fi
