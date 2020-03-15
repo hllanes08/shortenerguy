@@ -1,4 +1,4 @@
-lass Api::ShortenerController < Api::BaseApiController
+class Api::ShortenerController < Api::BaseApiController
   def resolve
     site = Shortcode.find_by_code(params[:code])
     if site.present?
