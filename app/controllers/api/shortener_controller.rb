@@ -30,12 +30,12 @@ class Api::ShortenerController < Api::BaseApiController
     if sc.save!
       render json: {
         success: true,
-	shortcode: shortcode
+	shortcode: sc
       }
     else
       render json: {
         success: false,
-	errors: shortcode.errors.full_messages
+	errors: sc.errors.full_messages
       }
     end
   end
