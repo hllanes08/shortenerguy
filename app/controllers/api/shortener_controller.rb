@@ -1,4 +1,5 @@
 class Api::ShortenerController < Api::BaseApiController
+ 
   def resolve
     site = Shortcode.find_by_code(params[:code])
     if site.present?
@@ -25,6 +26,7 @@ class Api::ShortenerController < Api::BaseApiController
 
   def create
     sc = Shortcode.new(shortcode_params)
+
     if sc.save!
       render json: {
         success: true,
