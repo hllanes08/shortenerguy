@@ -36,3 +36,9 @@ Start rails server
 ```
 rails s
 ```
+
+## Test
+
+Run rspec test
+
+```rspec```
