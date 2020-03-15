@@ -27,7 +27,7 @@ class Api::ShortenerController < Api::BaseApiController
   def create
     sc = Shortcode.new(shortcode_params)
 
-    if sc.save!
+    if sc.valid? && sc.save!
       render json: {
         success: true,
 	shortcode: sc

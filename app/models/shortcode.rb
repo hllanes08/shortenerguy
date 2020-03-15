@@ -11,4 +11,5 @@
 #  updated_at  :datetime         not null
 #
 class Shortcode < ApplicationRecord
+  validates_presence_of :code, :url
 end

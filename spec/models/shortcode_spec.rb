@@ -1,9 +1,11 @@
 require 'rails_helper'
+require 'faker'
 
 RSpec.describe Shortcode, :type => :model do
-  it "is valid with valid attributes"
-  it "is not valid without a title"
-  it "is not valid without a description"
-  it "is not valid without a start_date"
-  it "is not valid without a end_date"
+  context 'validation test' do
+    it 'ensures code presence' do
+      sc = Shortcode.new(code: Faker::Alphanumeric.alpha(number: 4), url: Faker::Internet.domain_name.save
+      expect(user).to eq(false)
+    end
+  end
 end
