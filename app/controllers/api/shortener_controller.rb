@@ -1,5 +1,5 @@
 class Api::ShortenerController < Api::BaseApiController
- 
+  OSIZE = 100 
   def resolve
     site = Shortcode.find_by_code(params[:code])
     if site.present?
@@ -17,7 +17,7 @@ class Api::ShortenerController < Api::BaseApiController
   end
 
   def index
-    tops = Shortcode.all.where('occurrences is not NULL').order(occurrences: :desc)
+    tops = Shortcode.all.where('occurrences is not NULL').order(occurrences: :desc).take(OSIZE)
     render json: {
       success: true,
       urls: tops
